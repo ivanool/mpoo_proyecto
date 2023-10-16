@@ -36,16 +36,10 @@ public class Arena {
         // Agregar los personajes a la lista
         lista.add(guerrero1);
         lista.add(mago1);
-
-        System.out.println("Se han unido dos nuevos personajes a la batalla!");
-        Magos mago2 = new Magos("Merlin", "Magia", 100, generateRandomValue(20, 25));
-        Guerreros guerrero2 = new Guerreros("Arturo", "Espada", generateRandomValue(50, 120), generateRandomValue(10, 20));
-        mago2.mostrar_info();
-        guerrero2.mostrar_info();
-        lista.add(mago2);
-        lista.add(guerrero2);
-        // Simular tres batallas
-        for (int i = 1; i <= 3; i++) {
+        
+	// Simular tres batallas
+        int i = 0;
+	do {
             System.out.println("Batalla " + i);
             for (Personajes personaje : lista) {
 
@@ -76,7 +70,8 @@ public class Arena {
                     mago.modificar_vida(generateRandomValue(1, 100));
                 } 
             }
-        }
+	    i++;
+        } while (i<4);
 
         // Mostrar resumen de la batalla
         Personajes ganador = obtenerGanador(lista);
@@ -100,12 +95,9 @@ public class Arena {
         
         return ganador;
     }
-    
-    
 
     public static int generateRandomValue(int min, int max) {
         Random rand = new Random();
         return rand.nextInt((max - min) + 1) + min;
     }
-    
 }
