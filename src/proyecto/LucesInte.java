@@ -6,9 +6,9 @@ public class LucesInte extends DispositivosInteligentes{
     private int intensidad;
     private String color;
     //Constructores
-    ImageIcon intensidad =new ImageIcon("src/proyecto/intensidad.jpeg");
-    ImageIcon color =new ImageIcon("src/proyecto/color.png");
-    ImageIcon estado =new ImageIcon("src/proyecto/estadoLuz.jpeg");
+    ImageIcon inte =new ImageIcon("src/proyecto/intensidad.jpeg");
+    ImageIcon col =new ImageIcon("src/proyecto/color.png");
+    ImageIcon est =new ImageIcon("src/proyecto/estadoLuz.jpeg");
     
     public LucesInte(int id,String nombre) {
         super(id,nombre);
@@ -20,12 +20,12 @@ public class LucesInte extends DispositivosInteligentes{
     // Método para ajustar la intensidad de las luces
     public void AjustarIntensidad(int nuevaIntensidad) {
         this.intensidad = nuevaIntensidad;
-        JOptionPane.showMessageDialog(null, "Intensidad de " + this.nombre + " ajustada a " + this.intensidad, "Jaime, Navarro, Perez y Soto", JOptionPane.DEFAULT_OPTION, intensidad);
+        JOptionPane.showMessageDialog(null, "Intensidad de " + this.nombre + " ajustada a " + this.intensidad, "Jaime, Navarro, Perez y Soto", JOptionPane.DEFAULT_OPTION, inte);
     }    
     // Método para cambiar el color de las luces
     public void CambiarColor(String nuevoColor) {
         this.color = nuevoColor;
-        JOptionPane.showMessageDialog(null, "Color de " + this.nombre + " cambiado a " + this.color, "Jaime, Navarro, Perez y Soto", JOptionPane.DEFAULT_OPTION, color);
+        JOptionPane.showMessageDialog(null, "Color de " + this.nombre + " cambiado a " + this.color, "Jaime, Navarro, Perez y Soto", JOptionPane.DEFAULT_OPTION, col);
     }
     // Método para obtener la intensidad actual de las luces
     public int ObtenerIntensidad() {
@@ -39,7 +39,7 @@ public class LucesInte extends DispositivosInteligentes{
     // Método para mostrar el estado actual de las luces (incluyendo intensidad y color)
     public void MostrarEstado() {
         String estado = obtenerEstado() ? "encendidas" : "apagadas";
-        JOptionPane.showMessageDialog(null, this.nombre + " están " + estado + " con intensidad " + this.intensidad + " y color " + this.color, "Jaime, Navarro, Perez y Soto", JOptionPane.DEFAULT_OPTION, estado);
+        JOptionPane.showMessageDialog(null, this.nombre + " están " + estado + " con intensidad " + this.intensidad + " y color " + this.color, "Jaime, Navarro, Perez y Soto", JOptionPane.DEFAULT_OPTION, est);
     }
     
 }
