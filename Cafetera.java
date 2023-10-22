@@ -1,4 +1,4 @@
-package proyectocasainte;
+
 public class Cafetera extends DispositivosInteligentes{
     public Cafetera(int id, String nombre){
         super(id, nombre);

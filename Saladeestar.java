@@ -1,4 +1,4 @@
-package proyectocasainte;
+
 import java.util.ArrayList;
 
 public class Saladeestar extends Habitaciones {

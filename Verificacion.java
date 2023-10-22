@@ -1,4 +1,4 @@
-package proyectocasainte;
+
 
 import javax.swing.JOptionPane;
 

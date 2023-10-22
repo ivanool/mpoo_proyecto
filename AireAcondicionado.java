@@ -1,4 +1,4 @@
-package proyectocasainte;
+
 public class AireAcondicionado extends DispositivosInteligentes{
     public AireAcondicionado(int id, String nombre){
         super(id, nombre);

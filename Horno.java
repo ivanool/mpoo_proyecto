@@ -1,4 +1,4 @@
-package proyectocasainte;
+
 
 public class Horno extends DispositivosInteligentes{
     public Horno(int id, String nombre){

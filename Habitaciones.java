@@ -1,4 +1,4 @@
-package proyectocasainte;
+
 public class Habitaciones {
     protected String nombre;
     protected DispositivosInteligentes[] dispositivosInteligentes;
