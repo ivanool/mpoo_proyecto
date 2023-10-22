@@ -1,72 +1,56 @@
-public class Cocina extends Habitacion{
-    public Cocina(String nombre){
-        super(nombre);
+import java.util.ArrayList;
+
+public class Cocina extends Habitaciones {
+
+    public Cocina(String nombre, int maxDispositivosInteligentes) {
+        super(nombre, maxDispositivosInteligentes);
     }
 
-    public void encender_horno(){
-        List<DispositivoInteligente> dispositivos = this.getDispositivosInteligentes();
-
-        for (DispositivoInteligente dispositivo : dispositivos) {
+    public void encender_horno() {
+        for (DispositivosInteligentes dispositivo : dispositivosInteligentes) {
             if (dispositivo instanceof Horno) {
-                dispositivo.setEstado("encendido");
                 ((Horno) dispositivo).encender();
             }
         }
     }
 
-    public void apagar_horno(){
-        List<DispositivoInteligente> dispositivos = this.getDispositivosInteligentes();
-
-        for (DispositivoInteligente dispositivo : dispositivos) {
+    public void apagar_horno() {
+        for (DispositivosInteligentes dispositivo : dispositivosInteligentes) {
             if (dispositivo instanceof Horno) {
-                dispositivo.setEstado("apagado");
                 ((Horno) dispositivo).apagar();
             }
         }
     }
 
-    public void encender_luces(){
-        List<DispositivoInteligente> dispositivos = this.getDispositivosInteligentes();
-
-        for (DispositivoInteligente dispositivo : dispositivos) {
-            if (dispositivo instanceof Luz) {
-                dispositivo.setEstado("encendido");
-                ((Luz) dispositivo).encender();
+    public void encender_luces() {
+        for (DispositivosInteligentes dispositivo : dispositivosInteligentes) {
+            if (dispositivo instanceof LucesInte) {
+                ((LucesInte) dispositivo).encender();
             }
         }
     }
 
-    public void apagar_luces(){
-        List<DispositivoInteligente> dispositivos = this.getDispositivosInteligentes();
-
-        for (DispositivoInteligente dispositivo : dispositivos) {
-            if (dispositivo instanceof Luz) {
-                dispositivo.setEstado("apagado");
-                ((Luz) dispositivo).apagar();
+    public void apagar_luces() {
+        for (DispositivosInteligentes dispositivo : dispositivosInteligentes) {
+            if (dispositivo instanceof LucesInte) {
+                ((LucesInte) dispositivo).apagar();
             }
         }
     }
 
-    public void encender_cafetera(){
-        List<DispositivoInteligente> dispositivos = this.getDispositivosInteligentes();
-
-        for (DispositivoInteligente dispositivo : dispositivos) {
+    public void encender_cafetera() {
+        for (DispositivosInteligentes dispositivo : dispositivosInteligentes) {
             if (dispositivo instanceof Cafetera) {
-                dispositivo.setEstado("encendido");
                 ((Cafetera) dispositivo).encender();
             }
         }
     }
 
-    public void apagar_cafetera(){
-        List<DispositivoInteligente> dispositivos = this.getDispositivosInteligentes();
-
-        for (DispositivoInteligente dispositivo : dispositivos) {
+    public void apagar_cafetera() {
+        for (DispositivosInteligentes dispositivo : dispositivosInteligentes) {
             if (dispositivo instanceof Cafetera) {
-                dispositivo.setEstado("apagado");
                 ((Cafetera) dispositivo).apagar();
             }
         }
     }
-
 }

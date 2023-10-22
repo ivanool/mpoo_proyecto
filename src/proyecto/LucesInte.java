@@ -1,32 +1,38 @@
-package proyecto;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
-public class LucesInte extends DispositivosInteligentes{
-    //Atributos
+
+public class LucesInte extends DispositivosInteligentes {
+    // Atributos
     private int intensidad;
     private String color;
-    //Constructores
-    ImageIcon inte =new ImageIcon("src/proyecto/intensidad.jpeg");
-    ImageIcon col =new ImageIcon("src/proyecto/color.png");
-    ImageIcon est =new ImageIcon("src/proyecto/estadoLuz.jpeg");
-    
-    public LucesInte(int id,String nombre) {
-        super(id,nombre);
+    private boolean estado;
+
+    // Constructores
+    ImageIcon inte = new ImageIcon("src/proyecto/intensidad.jpeg");
+    ImageIcon col = new ImageIcon("src/proyecto/color.png");
+    ImageIcon est = new ImageIcon("src/proyecto/estadoLuz.jpeg");
+
+    public LucesInte(int id, String nombre) {
+        super(id, nombre);
         this.intensidad = 0;
         this.color = "Blanco";
+        this.estado = false; // Inicialmente apagadas
     }
-    //Metodos
-    
+
+    // Métodos
+
     // Método para ajustar la intensidad de las luces
     public void AjustarIntensidad(int nuevaIntensidad) {
         this.intensidad = nuevaIntensidad;
         JOptionPane.showMessageDialog(null, "Intensidad de " + this.nombre + " ajustada a " + this.intensidad, "Jaime, Navarro, Perez y Soto", JOptionPane.DEFAULT_OPTION, inte);
-    }    
+    }
+
     // Método para cambiar el color de las luces
     public void CambiarColor(String nuevoColor) {
         this.color = nuevoColor;
         JOptionPane.showMessageDialog(null, "Color de " + this.nombre + " cambiado a " + this.color, "Jaime, Navarro, Perez y Soto", JOptionPane.DEFAULT_OPTION, col);
     }
+
     // Método para obtener la intensidad actual de las luces
     public int ObtenerIntensidad() {
         return intensidad;
@@ -36,10 +42,20 @@ public class LucesInte extends DispositivosInteligentes{
     public String ObtenerColor() {
         return color;
     }
+
     // Método para mostrar el estado actual de las luces (incluyendo intensidad y color)
     public void MostrarEstado() {
-        String estado = obtenerEstado() ? "encendidas" : "apagadas";
+        String estado = this.estado ? "encendidas" : "apagadas";
         JOptionPane.showMessageDialog(null, this.nombre + " están " + estado + " con intensidad " + this.intensidad + " y color " + this.color, "Jaime, Navarro, Perez y Soto", JOptionPane.DEFAULT_OPTION, est);
     }
-    
+
+    public void encender() {
+        this.estado = true;
+        JOptionPane.showMessageDialog(null, this.nombre + " encendidas", "Jaime, Navarro, Perez y Soto", JOptionPane.DEFAULT_OPTION, est);
+    }
+
+    public void apagar() {
+        this.estado = false;
+        JOptionPane.showMessageDialog(null, this.nombre + " apagadas", "Jaime, Navarro, Perez y Soto", JOptionPane.DEFAULT_OPTION, est);
+    }
 }

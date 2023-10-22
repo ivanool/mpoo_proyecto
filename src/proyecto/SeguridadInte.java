@@ -1,4 +1,4 @@
-package proyecto;
+
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 public class SeguridadInte extends DispositivosInteligentes{

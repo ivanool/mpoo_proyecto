@@ -1,4 +1,4 @@
-package proyecto;
+
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import java.util.ArrayList;
@@ -44,7 +44,7 @@ public class ListaReproduccionInte extends DispositivosInteligentes {
 
     public void CambiarListaReproduccion(List<String> nuevaLista) {
         listaReproduccion = nuevaLista;
-        JOptionPane.showMessageDialog(null, "Lista de reproducción actualizada", "Jaime, Navarro, Perez y Soto", JOptionPane.DEFAULT_OPTION, actualizada););
+        JOptionPane.showMessageDialog(null, "Lista de reproducción actualizada", "Jaime, Navarro, Perez y Soto", JOptionPane.DEFAULT_OPTION, actualizada);
     }
 
     public void AgregarCancionALista(String cancion) {
