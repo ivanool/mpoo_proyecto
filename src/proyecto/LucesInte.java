@@ -1,10 +1,15 @@
 package proyecto;
-
+import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
 public class LucesInte extends DispositivosInteligentes{
     //Atributos
     private int intensidad;
     private String color;
     //Constructores
+    ImageIcon intensidad =new ImageIcon("src/proyecto/intensidad.jpeg");
+    ImageIcon color =new ImageIcon("src/proyecto/color.png");
+    ImageIcon estado =new ImageIcon("src/proyecto/estadoLuz.jpeg");
+    
     public LucesInte(int id,String nombre) {
         super(id,nombre);
         this.intensidad = 0;
@@ -15,12 +20,12 @@ public class LucesInte extends DispositivosInteligentes{
     // Método para ajustar la intensidad de las luces
     public void AjustarIntensidad(int nuevaIntensidad) {
         this.intensidad = nuevaIntensidad;
-        System.out.println("Intensidad de " + this.nombre + " ajustada a " + this.intensidad);
+        JOptionPane.showMessageDialog(null, "Intensidad de " + this.nombre + " ajustada a " + this.intensidad, "Jaime, Navarro, Perez y Soto", JOptionPane.DEFAULT_OPTION, intensidad);
     }    
     // Método para cambiar el color de las luces
     public void CambiarColor(String nuevoColor) {
         this.color = nuevoColor;
-        System.out.println("Color de " + this.nombre + " cambiado a " + this.color);
+        JOptionPane.showMessageDialog(null, "Color de " + this.nombre + " cambiado a " + this.color, "Jaime, Navarro, Perez y Soto", JOptionPane.DEFAULT_OPTION, color);
     }
     // Método para obtener la intensidad actual de las luces
     public int ObtenerIntensidad() {
@@ -34,7 +39,7 @@ public class LucesInte extends DispositivosInteligentes{
     // Método para mostrar el estado actual de las luces (incluyendo intensidad y color)
     public void MostrarEstado() {
         String estado = obtenerEstado() ? "encendidas" : "apagadas";
-        System.out.println(this.nombre + " están " + estado + " con intensidad " + this.intensidad + " y color " + this.color);
+        JOptionPane.showMessageDialog(null, this.nombre + " están " + estado + " con intensidad " + this.intensidad + " y color " + this.color, "Jaime, Navarro, Perez y Soto", JOptionPane.DEFAULT_OPTION, estado);
     }
     
 }
