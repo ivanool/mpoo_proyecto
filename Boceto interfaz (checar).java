@@ -128,7 +128,7 @@ public class CasaInteligente {
                         }
                     }
                 }else
-                      System.out.println("\t No se encontró el dispositivo de ID "+IDdispositivo);
+                      JOptionPane.showMessageDialog(null, "No se encontró el dispositivo de ID "+IDdispositivo, "Jaime, Navarro, Perez y Soto", JOptionPane.DEFAULT_OPTION, error);
             case 4:
                 if(listaDispTot.size()!=0){
                     do{
