@@ -59,7 +59,13 @@ public class CasaInteligente {
             for (DispositivosInteligentes dispositivo : dispositivos) {
                 if (dispositivo != null) {
                     mensaje.append("Nombre: ").append(dispositivo.getNombre()).append(", Estado: ");
-                    mensaje.append(dispositivo.obtenerEstado() ? "Encendido" : "Apagado").append("\n");
+                    mensaje.append(dispositivo.obtenerEstado() ? "Encendido" : "Apagado").append(", ");
+
+                    if (dispositivo instanceof TermostatoInte) {
+                        mensaje.append("Temperatura: ").append(((TermostatoInte) dispositivo).getTemperatura()).append("°C, ");
+                    }
+
+                    mensaje.append("\n");
                 }
             }
 
@@ -141,31 +147,21 @@ public class CasaInteligente {
             if (habitacionElegida != null) {
                 for (Habitaciones cuarto : listaCuartos) {
                     if (cuarto.getNombre().equals(habitacionElegida)) {
-                        switch (subclaseSeleccionada) {
-                            case "Aire Acondicionado":
-                                dispositivo = new AireAcondicionado(idDispositivo, nombreDispositivo, false);
-                                break;
-                            case "Cafetera":
-                                dispositivo = new Cafetera(idDispositivo, nombreDispositivo, false);
-                                break;
-                            case "Horno":
-                                dispositivo = new Horno(idDispositivo, nombreDispositivo, false);
-                                break;
-                            case "Luces Inteligentes":
-                                dispositivo = new LucesInte(idDispositivo, nombreDispositivo, false);
-                                break;
-                            case "Termostato Inteligente":
-                                dispositivo = new TermostatoInte(idDispositivo, nombreDispositivo, false);
-                                break;
-                            case "Seguridad Inteligente":
-                                dispositivo = new SeguridadInte(idDispositivo, nombreDispositivo, false);
-                                break;
+                        if (subclaseSeleccionada.equals("Termostato Inteligente")) {
+                            int temperatura = verNumero("Ingrese la temperatura deseada: ");
+                            dispositivo = new TermostatoInte(idDispositivo, nombreDispositivo, false, temperatura);
+                        } else {
+                            dispositivo = new DispositivosInteligentes(idDispositivo, nombreDispositivo, false);
                         }
 
                         if (dispositivo != null) {
                             cuarto.addDispositivosInteligentes(dispositivo);
                             listaDispTot.add(dispositivo);
-                            JOptionPane.showMessageDialog(null, "El dispositivo " + dispositivo.getNombre() + " se ha registrado con éxito en la habitación " + cuarto.getNombre(), "Casa Inteligente", JOptionPane.INFORMATION_MESSAGE);
+                            if (dispositivo instanceof TermostatoInte) {
+                                JOptionPane.showMessageDialog(null, "El dispositivo " + dispositivo.getNombre() + " se ha registrado con éxito en la habitación " + cuarto.getNombre() + " con temperatura establecida en " + ((TermostatoInte) dispositivo).getTemperatura() + "°C.", "Casa Inteligente", JOptionPane.INFORMATION_MESSAGE);
+                            } else {
+                                JOptionPane.showMessageDialog(null, "El dispositivo " + dispositivo.getNombre() + " se ha registrado con éxito en la habitación " + cuarto.getNombre(), "Casa Inteligente", JOptionPane.INFORMATION_MESSAGE);
+                            }
                         }
                     }
                 }
@@ -184,7 +180,13 @@ public class CasaInteligente {
         for (DispositivosInteligentes dispositivo : listaDispTot) {
             if (dispositivo.getId() == idDispositivo) {
                 dispositivo.encender();
-                JOptionPane.showMessageDialog(null, "El dispositivo ha sido encendido.", "Casa Inteligente", JOptionPane.INFORMATION_MESSAGE);
+                if (dispositivo instanceof TermostatoInte) {
+                    int nuevaTemperatura = verNumero("Ingrese la nueva temperatura deseada: ");
+                    ((TermostatoInte) dispositivo).setTemperatura(nuevaTemperatura);
+                    JOptionPane.showMessageDialog(null, "El dispositivo ha sido encendido y la temperatura se ha establecido en " + nuevaTemperatura + "°C.", "Casa Inteligente", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "El dispositivo ha sido encendido.", "Casa Inteligente", JOptionPane.INFORMATION_MESSAGE);
+                }
                 return;
             }
         }

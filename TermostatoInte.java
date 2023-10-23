@@ -1,27 +1,33 @@
-import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 public class TermostatoInte extends DispositivosInteligentes {
-    private int temperaturaDeseada;
-    ImageIcon temperatura = new ImageIcon("src/proyecto/temperatura.png");
+    private int temperatura;
+    private ImageIcon iconoTemperatura = new ImageIcon("src/proyecto/temperatura.png");
 
-    public TermostatoInte(int id, String nombre, boolean encendido) {
-        super(id, nombre, encendido);
-        this.temperaturaDeseada = 25; // Temperatura por defecto
+    public TermostatoInte(int id, String nombre, boolean estado, int temperatura) {
+        super(id, nombre, estado);
+        this.temperatura = temperatura;
     }
 
-    public void EstablecerTemperaturaDeseada(int nuevaTemperatura) {
-        this.temperaturaDeseada = nuevaTemperatura;
-        JOptionPane.showMessageDialog(null, "Temperatura deseada de " + this.nombre + " establecida a " + this.temperaturaDeseada + "°C", "Jaime, Navarro, Perez y Soto", JOptionPane.DEFAULT_OPTION, temperatura);
+    public int getTemperatura() {
+        return temperatura;
     }
 
+    public void setTemperatura(int temperatura) {
+        this.temperatura = temperatura;
+    }
+
+    @Override
     public void encender() {
-        this.encendido = true;
-        JOptionPane.showMessageDialog(null, "Temperatura deseada de " + this.nombre + " establecida a " + this.temperaturaDeseada + "°C", "Jaime, Navarro, Perez y Soto", JOptionPane.DEFAULT_OPTION, temperatura);
+        super.encender();
+        JOptionPane.showMessageDialog(null, "Temperatura deseada de " + this.getNombre() + " establecida a " + this.temperatura + "°C", "Casa Inteligente", JOptionPane.DEFAULT_OPTION, iconoTemperatura);
     }
+
+    @Override
     public void apagar() {
-        this.encendido = false;
-        JOptionPane.showMessageDialog(null, "Temperatura deseada de " + this.nombre + " establecida a " + this.temperaturaDeseada + "°C", "Jaime, Navarro, Perez y Soto", JOptionPane.DEFAULT_OPTION, temperatura);
+        super.apagar();
+        JOptionPane.showMessageDialog(null, this.getNombre() + " ha sido apagado", "Casa Inteligente", JOptionPane.DEFAULT_OPTION, iconoTemperatura);
     }
 }
 
