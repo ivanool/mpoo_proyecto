@@ -1,3 +1,4 @@
+package proyectocasainte;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -120,24 +121,19 @@ public class CasaInteligente {
             return;
         }
 
-        // Crear un array de opciones para las subclases
         String[] subclases = {"Aire Acondicionado", "Cafetera", "Horno", "Luces Inteligentes", "Termostato Inteligente", "Seguridad Inteligente"};
 
-        // Mostrar el menú para que el usuario elija la subclase
         int seleccionSubclase = JOptionPane.showOptionDialog(
                 null, "Seleccione la subclase de dispositivo inteligente:", "Casa Inteligente", JOptionPane.DEFAULT_OPTION,
                 JOptionPane.QUESTION_MESSAGE, null, subclases, subclases[0]);
 
         if (seleccionSubclase >= 0) {
-            // Obtener la subclase seleccionada por el usuario
             String subclaseSeleccionada = subclases[seleccionSubclase];
 
-            // Crear un dispositivo de la subclase seleccionada
             DispositivosInteligentes dispositivo = null;
             int idDispositivo = verNumero("Ingrese el ID del dispositivo o presione 0 para asignar automáticamente: ");
             String nombreDispositivo = JOptionPane.showInputDialog(null, "Por favor, ingrese el nombre del dispositivo: ", "Casa Inteligente", JOptionPane.QUESTION_MESSAGE);
 
-            // Mostrar una lista de habitaciones disponibles
             String[] habitacionesDisponibles = new String[listaCuartos.size()];
             for (int i = 0; i < listaCuartos.size(); i++) {
                 habitacionesDisponibles[i] = listaCuartos.get(i).getNombre();
