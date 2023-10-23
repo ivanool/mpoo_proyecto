@@ -14,6 +14,7 @@ public class DispositivosInteligentes {
         this.idDispositivo = id;
         this.nombre = nombre;
         this.encendido = false;
+        
     }
     //Metodos
     public void encender() {
@@ -32,5 +33,10 @@ public class DispositivosInteligentes {
     }
     public int getId() {
         return idDispositivo;
+
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 }

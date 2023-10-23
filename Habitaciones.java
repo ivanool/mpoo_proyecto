@@ -40,6 +40,11 @@ public class Habitaciones {
         return dispositivosInteligentes;
     }
 
+    public String getNombre() {
+        System.out.println(nombre);
+        return nombre;
+    }
+
     public void encender_luces() {
         
     }
