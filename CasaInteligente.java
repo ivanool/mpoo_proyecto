@@ -75,20 +75,14 @@ public class CasaInteligente {
 
     public static void ingresarCuartos(ArrayList<Habitaciones> listaCuartos) {
         String[] TipoCuarto = {"Sala de estar", "Cocina", "Dormitorio"};
-        boolean volverAlMenu = false;
 
-        do {
-            String nombreCuarto = JOptionPane.showInputDialog(null, "Por favor, ingrese el nombre del cuarto: ", "Casa Inteligente", JOptionPane.QUESTION_MESSAGE);
-            int tipoCuarto = mostrarMenuTipoCuarto(TipoCuarto);
+        String nombreCuarto = JOptionPane.showInputDialog(null, "Por favor, ingrese el nombre del cuarto: ", "Casa Inteligente", JOptionPane.QUESTION_MESSAGE);
+        int tipoCuarto = mostrarMenuTipoCuarto(TipoCuarto);
 
-            if (tipoCuarto >= 0) {
-                int maxDispositivos = verNumero("Ingrese la cantidad máxima de dispositivos inteligentes para esta habitación: ");
-                ingresarCuarto(listaCuartos, tipoCuarto, nombreCuarto, maxDispositivos);
-            } else {
-                volverAlMenu = true;
-            }
-
-        } while (!volverAlMenu);
+        if (tipoCuarto >= 0) {
+            int maxDispositivos = verNumero("Ingrese la cantidad máxima de dispositivos inteligentes para esta habitación: ");
+            ingresarCuarto(listaCuartos, tipoCuarto, nombreCuarto, maxDispositivos);
+        }
     }
 
     public static int mostrarMenuTipoCuarto(String[] tipos) {
