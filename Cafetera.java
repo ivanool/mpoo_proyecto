@@ -1,16 +1,20 @@
+import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
 
-public class Cafetera extends DispositivosInteligentes{
+    public class Cafetera extends DispositivosInteligentes{
+    ImageIcon encender =new ImageIcon("src/proyecto/encendido.png");
+    ImageIcon apagar =new ImageIcon("src/proyecto/apagado.jpeg");
+    
     public Cafetera(int id, String nombre){
         super(id, nombre);
     }
 
     @Override
     public void encender(){
-        System.out.println("Cafetera encendida");
+        JOptionPane.showMessageDialog(null, "Cafetera encendida", "Jaime, Navarro, Perez y Soto", JOptionPane.DEFAULT_OPTION, encender);
     }
-
     @Override
     public void apagar(){
-        System.out.println("Cafetera apagada");
+        JOptionPane.showMessageDialog(null, "Cafetera apagada", "Jaime, Navarro, Perez y Soto", JOptionPane.DEFAULT_OPTION, apagar);
     }
 }
