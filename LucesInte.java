@@ -13,8 +13,8 @@ public class LucesInte extends DispositivosInteligentes {
     ImageIcon col = new ImageIcon("src/proyecto/color.png");
     ImageIcon est = new ImageIcon("src/proyecto/estadoLuz.jpeg");
 
-    public LucesInte(int id, String nombre) {
-        super(id, nombre);
+    public LucesInte(int id, String nombre, boolean encendido) {
+        super(id, nombre, encendido);
         this.intensidad = 0;
         this.color = "Blanco";
         this.estado = false; // Inicialmente apagadas
@@ -52,13 +52,13 @@ public class LucesInte extends DispositivosInteligentes {
 
     @Override
     public void encender() {
-        this.estado = true;
+        this.encendido = true;
         JOptionPane.showMessageDialog(null, this.nombre + " encendidas", "Jaime, Navarro, Perez y Soto", JOptionPane.DEFAULT_OPTION, est);
     }
 
     @Override
     public void apagar() {
-        this.estado = false;
+        this.encendido = false;
         JOptionPane.showMessageDialog(null, this.nombre + " apagadas", "Jaime, Navarro, Perez y Soto", JOptionPane.DEFAULT_OPTION, est);
     }
 }

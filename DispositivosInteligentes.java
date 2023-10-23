@@ -10,7 +10,7 @@ public class DispositivosInteligentes {
     ImageIcon encender =new ImageIcon("src/proyecto/encendido.png");
     ImageIcon apagar =new ImageIcon("src/proyecto/apagado.jpeg");
     int iD,ID;
-    public DispositivosInteligentes(int id, String nombre) {
+    public DispositivosInteligentes(int id, String nombre, boolean encendido) {
         this.idDispositivo = id;
         this.nombre = nombre;
         this.encendido = false;

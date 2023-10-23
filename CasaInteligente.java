@@ -28,12 +28,8 @@ public class CasaInteligente {
                     mostrarDispositivosEnHabitaciones(listaCuartos);
                     break;
                 case 6:
-                    mostrarDispositivosReproduciendo(listaDispTot);
-                    break;
-                case 7:
                     JOptionPane.showMessageDialog(null, "Saliendo del programa. Hasta luego.", "Casa Inteligente", JOptionPane.INFORMATION_MESSAGE);
                     break;
-                    
                 default:
                     JOptionPane.showMessageDialog(null, "Opción no válida. Por favor, seleccione una opción válida.", "Casa Inteligente", JOptionPane.WARNING_MESSAGE);
             }
@@ -121,32 +117,50 @@ public class CasaInteligente {
             return;
         }
 
-        String[] tiposCuarto = listaCuartos.stream()
-            .map(cuarto -> cuarto.getClass().getSimpleName())
-            .distinct()
-            .toArray(String[]::new);
+        // Crear un array de opciones para las subclases
+        String[] subclases = {"Aire Acondicionado", "Cafetera", "Horno", "Luces Inteligentes", "Termostato Inteligente", "Seguridad Inteligente"};
 
-        int tipoCuarto = mostrarMenuTipoCuarto(tiposCuarto);
+        // Mostrar el menú para que el usuario elija la subclase
+        int seleccionSubclase = JOptionPane.showOptionDialog(
+                null, "Seleccione la subclase de dispositivo inteligente:", "Casa Inteligente", JOptionPane.DEFAULT_OPTION,
+                JOptionPane.QUESTION_MESSAGE, null, subclases, subclases[0]);
 
-        if (tipoCuarto >= 0) {
-            Habitaciones cuarto = listaCuartos.stream()
-                .filter(c -> c.getClass().getSimpleName().equals(tiposCuarto[tipoCuarto]))
-                .findFirst()
-                .orElse(null);
+        if (seleccionSubclase >= 0) {
+            // Obtener la subclase seleccionada por el usuario
+            String subclaseSeleccionada = subclases[seleccionSubclase];
 
-            int numDispositivos = verNumero("Ingrese el número de dispositivos a registrar: ");
+            // Crear un dispositivo de la subclase seleccionada
+            DispositivosInteligentes dispositivo = null;
+            int idDispositivo = verNumero("Ingrese el ID del dispositivo o presione 0 para asignar automáticamente: ");
+            String nombreDispositivo = JOptionPane.showInputDialog(null, "Por favor, ingrese el nombre del dispositivo: ", "Casa Inteligente", JOptionPane.QUESTION_MESSAGE);
 
-            for (int i = 0; i < numDispositivos; i++) {
-                String nombreDispositivo = JOptionPane.showInputDialog(null, "Por favor, ingrese el nombre del dispositivo: ", "Casa Inteligente", JOptionPane.QUESTION_MESSAGE);
-                int idDispositivo = verNumero("Ingrese el ID del dispositivo o presione 0 para asignar automáticamente: ");
-                
-                if (idDispositivo == 0) {
-                    idDispositivo = listaDispTot.size() + 1;
-                }
+            switch (subclaseSeleccionada) {
+                case "Aire Acondicionado":
+                    dispositivo = new AireAcondicionado(idDispositivo, nombreDispositivo, false);
+                    break;
+                case "Cafetera":
+                    dispositivo = new Cafetera(idDispositivo, nombreDispositivo, false);
+                    break;
+                case "Horno":
+                    dispositivo = new Horno(idDispositivo, nombreDispositivo, false);
+                    break;
+                case "Luces Inteligentes":
+                    dispositivo = new LucesInte(idDispositivo, nombreDispositivo, false);
+                    break;
+                case "Termostato Inteligente":
+                    dispositivo = new TermostatoInte(idDispositivo, nombreDispositivo, false);
+                    break;
+                case "Seguridad Inteligente":
+                    dispositivo = new SeguridadInte(idDispositivo, nombreDispositivo, false);
+                    break;
+            }
 
-                DispositivosInteligentes dispositivo = new DispositivosInteligentes(idDispositivo, nombreDispositivo);
+            if (dispositivo != null) {
+                Habitaciones cuarto = listaCuartos.get(0); // Usar el primer cuarto para el ejemplo
+
                 cuarto.addDispositivosInteligentes(dispositivo);
                 listaDispTot.add(dispositivo);
+                JOptionPane.showMessageDialog(null, "El dispositivo " + dispositivo.getNombre() + " se ha registrado con éxito.", "Casa Inteligente", JOptionPane.INFORMATION_MESSAGE);
             }
         }
     }
