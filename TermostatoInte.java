@@ -1,3 +1,4 @@
+package proyectocasainte;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -30,4 +31,3 @@ public class TermostatoInte extends DispositivosInteligentes {
         JOptionPane.showMessageDialog(null, this.getNombre() + " ha sido apagado", "Casa Inteligente", JOptionPane.DEFAULT_OPTION, iconoTemperatura);
     }
 }
-

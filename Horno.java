@@ -1,3 +1,5 @@
+package proyectocasainte;
+
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 

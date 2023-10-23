@@ -1,3 +1,4 @@
+package proyectocasainte;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 public class Cafetera extends DispositivosInteligentes{
