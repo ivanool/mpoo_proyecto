@@ -1,4 +1,4 @@
-
+package proyectocasainte;
 public class Habitaciones {
     protected String nombre;
     protected DispositivosInteligentes[] dispositivosInteligentes;
@@ -45,19 +45,4 @@ public class Habitaciones {
         return nombre;
     }
 
-    public void encender_luces() {
-        
-    }
-
-    public void apagar_luces() {
-        
-    }
-
-    public void configurar_temperatura(int temperatura) {
-        
-    }
-
-    public void controlar_iluminacion() {
-        
-    }
 }
