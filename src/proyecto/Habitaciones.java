@@ -1,4 +1,7 @@
+import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
 public class Habitaciones {
+    ImageIcon error = new ImageIcon("src/proyecto/error.png");
     protected String nombre;
     protected DispositivosInteligentes[] dispositivosInteligentes;
     protected int numDispositivosInteligentes;
@@ -14,7 +17,7 @@ public class Habitaciones {
             dispositivosInteligentes[numDispositivosInteligentes] = dispositivo;
             numDispositivosInteligentes++;
         } else {
-            System.out.println("No se pueden agregar más dispositivos inteligentes.");
+            JOptionPane.showMessageDialog(null, "No se pueden agregar más dispositivos inteligentes.", "Jaime, Navarro, Perez y Soto", JOptionPane.DEFAULT_OPTION, error);
         }
     }
 
@@ -29,9 +32,9 @@ public class Habitaciones {
                 return;
             }
         }
-        System.out.println("El dispositivo inteligente no se encontró en la habitación.");
+        JOptionPane.showMessageDialog(null, "El dispositivo inteligente no se encontró en la habitación.", "Jaime, Navarro, Perez y Soto", JOptionPane.DEFAULT_OPTION, error);
     }
-
+    
     public DispositivosInteligentes[] getDispositivosInteligentes() {
         return dispositivosInteligentes;
     }
