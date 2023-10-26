@@ -4,12 +4,9 @@ import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 
 public class DispositivosInteligentes {
-    // Atributos de la clase
     protected int idDispositivo;
     protected String nombre;
     protected boolean encendido;
-    
-    // Constructores
     ImageIcon encender = new ImageIcon("src/proyecto/encendido.png");
     ImageIcon apagar = new ImageIcon("src/proyecto/apagado.jpeg");
     int iD, ID;
@@ -17,10 +14,9 @@ public class DispositivosInteligentes {
     public DispositivosInteligentes(int id, String nombre, boolean encendido) {
         this.idDispositivo = id;
         this.nombre = nombre;
-        this.encendido = false; // Inicialmente, el dispositivo se establece como apagado.
+        this.encendido = false;
     }
     
-    // Métodos de la clase
     public void encender() {
         encendido = true;
         JOptionPane.showMessageDialog(null, nombre + " encendido.", "Jaime, Navarro, Perez y Soto", JOptionPane.DEFAULT_OPTION, encender);
