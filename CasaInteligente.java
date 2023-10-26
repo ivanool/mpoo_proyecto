@@ -2,7 +2,6 @@ package proyectocasainte;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-
 public class CasaInteligente {
 
 	public static void main(String[] args) {
